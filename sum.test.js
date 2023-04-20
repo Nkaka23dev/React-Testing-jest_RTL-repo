@@ -1,29 +1,33 @@
-const sum = require('./sum');
+const { validatePassword } = require('./sum.js');
+const forbiddenPasswords = ['password123', 'qwertyuiop'];
 
-describe("toBe()[for primitive] and toEqual()\
-[for referential datatype] functions of jest", () => {
-    it("I should takes two numbers and add them", () => {
-        const results = sum(4, 1);
-        expect(results).toBe(5);
+describe('validatePassword', () => {
+    
+    it('returns false when password has fewer than 10 characters', () => {
+        expect(validatePassword('aB123456')).toBe(false);
+    });
+    it('returns false when password has more than 10 characters', () => {
+        expect(validatePassword('aB123456789')).toBe(false);
     });
 
-    it("Should compare two object to see if there are equal", () => {
-        const obj = {};
-        expect(obj).toEqual({});
-    })
-}
-)
-describe("Should Test for Truth or Falsy", () => {
-    it("Should test for truth", () => {
-        const str = null;
-        expect(str).toBeFalsy();
-        expect(str).not.toBeTruthy();
-        // expect(str).not.toBeUnderfined();
-    })
-    it("Should test for falsy", () => {
-        const str = "nkaka";
-        expect(str).toBeTruthy();
-    })
-})
+    it('returns false when password contains special characters', () => {
+        expect(validatePassword('aB12345@78')).toBe(false);
+    });
 
-// describe("Should check for arrays ")
+    it('returns false when password does not have mix of uppercase and lowercase characters', () => {
+        expect(validatePassword('ab12345678')).toBe(false);
+    });
+
+    it('returns false when password has sequences of ascending or descending digits', () => {
+        expect(validatePassword('a12345678A')).toBe(false);
+        expect(validatePassword('a88765432A')).toBe(true);
+    });
+
+      it('returns false when password is a forbidden password', () => {
+        expect(validatePassword('password123', forbiddenPasswords)).toBe(false);
+      });
+
+      it('returns false when password does not have at least 4 different digits/characters', () => {
+        expect(validatePassword('BBBBcc1111')).toBe(false);
+      });
+});
