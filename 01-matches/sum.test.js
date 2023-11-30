@@ -27,7 +27,7 @@ describe("numbers", () => {
     expect(sum).toBeGreaterThanOrEqual(4);
     expect(sum).toBeLessThanOrEqual(4);
   });
-  it("addin floating point", () => {
+  it("adding floating point", () => {
     const sum = 0.2 + 0.1;
     expect(sum).toBeCloseTo(0.3);
   });
