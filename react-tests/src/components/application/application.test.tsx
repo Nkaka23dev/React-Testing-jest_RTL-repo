@@ -45,7 +45,35 @@ describe("Test Application component", () => {
     expect(placeHolderElement).toBeInTheDocument();
 
     //getByText
-    const conditionElement = screen.getByText("Note: all field are mondatory.");
+    // const conditionElement = screen.getByText(
+    //   (content) => content.startsWith("Note:"),
+    //   { exact: false }
+    // );
+    //   const conditionElement = screen.getByText(/ field are mondatory/i, {
+    //   exact: false,
+    // });
+    const conditionElement = screen.getByText(
+      /^Note: all field are mondatory.$/,
+      { exact: false }
+    );
     expect(conditionElement).toBeInTheDocument();
+
+    //getByDisplay value
+    const nameElement4 = screen.getByDisplayValue("Nkaka");
+    expect(nameElement4).toBeInTheDocument();
+
+    //getByAltText
+    const altElement = screen.getByAltText("a person with a laptop", {
+      exact: false,
+    });
+    expect(altElement).toBeInTheDocument();
+
+    //getByTitle
+    const closeElement = screen.getByTitle("close");
+    expect(closeElement).toBeInTheDocument();
+
+    //getByTestId
+    const customElement = screen.getByTestId("custom-elements");
+    expect(customElement).toBeInTheDocument();
   });
 });

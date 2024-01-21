@@ -4,6 +4,12 @@ export default function Application() {
       <h1>Job application form</h1>
       <h2>Section 1</h2>
       <p>Note: all field are mondatory.</p>
+      <span title="close">X</span>
+      <img
+        src="https://cdn.pixabay.com/photo/2018/11/07/11/38/mountain-3800239_640.jpg"
+        alt="a person with a laptop"
+      />
+      <div data-testid="custom-elements">Custom HTML Element</div>
       <form className="px-5 py-10 space-y-5">
         <div>
           <label htmlFor="name">Name</label>
@@ -12,6 +18,8 @@ export default function Application() {
             id="name"
             className="py-3 px-6 w-full outline-none focus:border-black"
             placeholder="Fullname"
+            value="Nkaka "
+            onChange={() => {}}
           />
         </div>
         <div>
