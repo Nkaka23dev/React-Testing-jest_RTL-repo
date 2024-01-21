@@ -3,6 +3,7 @@ export default function Application() {
     <div className="bg-gray-100 mx-auto max-w-6xl mt-10 ">
       <h1>Job application form</h1>
       <h2>Section 1</h2>
+      <p>Note: all field are mondatory.</p>
       <form className="px-5 py-10 space-y-5">
         <div>
           <label htmlFor="name">Name</label>
@@ -10,6 +11,7 @@ export default function Application() {
             type="text"
             id="name"
             className="py-3 px-6 w-full outline-none focus:border-black"
+            placeholder="Fullname"
           />
         </div>
         <div>
@@ -20,7 +22,7 @@ export default function Application() {
           />
         </div>
         <div>
-          <label htmlFor="job-location">Select Job Location:</label>
+          <label htmlFor="job-location">Name</label>
           <select
             name="job-location"
             id="job-location"
@@ -35,9 +37,9 @@ export default function Application() {
           </select>
         </div>
         <div>
-          <label htmlFor="checkbox">
-            <input type="checkbox" id="terms" className="" /> I agree to the
-            terms and conditions
+          <label>
+            <input type="checkbox" id="terms" /> I agree to the terms and
+            conditions
           </label>
         </div>
         <button className="bg-blue-500 text-white px-10 py-3 hover:bg-blue-600 rounded-xl">

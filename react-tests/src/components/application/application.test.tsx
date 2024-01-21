@@ -28,5 +28,24 @@ describe("Test Application component", () => {
 
     const sectionHeading = screen.getByRole("heading", { name: "Section 1" });
     expect(sectionHeading).toBeInTheDocument();
+
+    // get by getlbyabeltext
+    const labelElement = screen.getByLabelText("Name", {
+      selector: "input",
+    });
+    expect(labelElement).toBeInTheDocument();
+
+    const termsElement = screen.getByLabelText(
+      "I agree to the terms and conditions"
+    );
+    expect(termsElement).toBeInTheDocument();
+
+    // get getbyPlaceholderText
+    const placeHolderElement = screen.getByPlaceholderText("Fullname");
+    expect(placeHolderElement).toBeInTheDocument();
+
+    //getByText
+    const conditionElement = screen.getByText("Note: all field are mondatory.");
+    expect(conditionElement).toBeInTheDocument();
   });
 });
